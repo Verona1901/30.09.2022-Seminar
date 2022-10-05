@@ -2,16 +2,41 @@
 // 1. Выводит число из отрезка [10,99]
 // 2. и показывает наибольшую цифру числа.
 
-int number= new Random (). Next (10,100);
+int number = new Random().Next(10, 100);
 
-Console.WriteLine ($"Случайное число из диапазона 10-99 -> {number}");
-int firstDigint = number/10; //78/10=7
-int secondDigint =number %10; //78%10 =8
+Console.WriteLine($"Случайное число из диапазона 10-99 -> {number}");
 
-if (firstDigint==secondDigint) Console.WriteLine ($"Цифры одинаковые");
-else if (firstDigint > secondDigint) Console.WriteLine ($"Наибольшая цифра числа = {firstDigint}");
-else Console.WriteLine ($"Наибольшая цифра числа = {secondDigint}");
+// int firstDigint = number / 10; //78/10=7
+// int secondDigint = number % 10; //78%10 =8
+
+// if (firstDigint == secondDigint) Console.WriteLine($"Цифры одинаковые");
+// else if (firstDigint > secondDigint) Console.WriteLine($"Наибольшая цифра числа = {firstDigint}");
+// else Console.WriteLine($"Наибольшая цифра числа = {secondDigint}");
 
 // int res = Math.Max (firstDigint, secondDigint);
 // Console.WriteLine ($"Наибольшая цифра числа = {res}");
 
+int MaxDigit (int number)
+{
+    int firstDigint = number / 10; //78/10=7
+    int secondDigint = number % 10; //78%10 =8
+    if (firstDigint > secondDigint) return firstDigint;
+    return secondDigint;
+}
+
+int maxDigit = MaxDigit (number);
+Console.WriteLine($"Наибольшая цифра числа = {maxDigit}");
+
+
+//Тернарный оператор
+int MaxDigit (int number)
+{
+    int firstDigint = number / 10; //78/10=7
+    int secondDigint = number % 10; //78%10 =8
+    // if (firstDigint > secondDigint) return firstDigint;
+    // return secondDigint;
+    return firstDigint> secondDigint ? firstDigint: secondDigint;
+}
+
+int maxDigit = MaxDigit (number);
+Console.WriteLine($"Наибольшая цифра числа = {maxDigit}");
